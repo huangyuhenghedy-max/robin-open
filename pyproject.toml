@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "robin-open"
+version = "0.1.0"
+description = "A transparent, local-first multi-agent workflow runtime."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [{name = "Robin Open Contributors"}]
+keywords = ["agents", "multi-agent", "orchestration", "best-of-n", "observability"]
+classifiers = ["Development Status :: 3 - Alpha", "License :: OSI Approved :: MIT License", "Programming Language :: Python :: 3"]
+
+[project.scripts]
+robin-open = "robin_open.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["robin_open*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
