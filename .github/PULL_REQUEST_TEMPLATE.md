@@ -1,4 +1,4 @@
-﻿## Summary
+## Summary
 
 ## Verification
 - [ ] `pytest`
