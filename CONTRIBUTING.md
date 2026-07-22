@@ -1,4 +1,4 @@
-﻿# Contributing to Robin Open
+# Contributing to Robin Open
 
 Thanks for helping make agent systems more transparent and useful.
 
