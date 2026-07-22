@@ -1,0 +1,53 @@
+name: First contribution task
+description: Create a small, well-scoped task that a new contributor can complete independently.
+title: "good first issue: "
+labels:
+  - good first issue
+  - help wanted
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Maintainers: use this template only for work that is ready to implement. Link a design discussion when a decision is still open.
+  - type: textarea
+    id: outcome
+    attributes:
+      label: User outcome
+      description: State the visible improvement and why it matters.
+      placeholder: A new user can replay the example trace and understand why a candidate was selected.
+    validations:
+      required: true
+  - type: textarea
+    id: starting-point
+    attributes:
+      label: Starting point
+      description: Name the relevant public files, commands, or documented behavior.
+      placeholder: README Quickstart; robin_open/workflow.py; tests/test_workflow.py
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: List observable checks that define done.
+      placeholder: |
+        - A focused test covers the new behavior.
+        - The example runs without credentials.
+        - Event traces remain inspectable.
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Scope boundaries
+      description: Record what this task must not change.
+      placeholder: No new mandatory dependency; no credentials, private data, or competition material.
+    validations:
+      required: true
+  - type: checkboxes
+    id: maintainer-ready
+    attributes:
+      label: Maintainer readiness
+      options:
+        - label: The task is reproducible, independently reviewable, and has no unresolved product decision.
+          required: true
