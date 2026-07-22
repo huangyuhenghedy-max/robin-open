@@ -1,4 +1,4 @@
-﻿# Robin Open Growth Plan
+# Robin Open Growth Plan
 
 This plan targets sustained adoption, not artificial metrics. A star is meaningful only when a real developer can install, understand, and reuse the project.
 
