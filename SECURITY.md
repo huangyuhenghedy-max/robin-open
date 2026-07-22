@@ -1,4 +1,4 @@
-﻿# Security Policy
+# Security Policy
 
 Please do not report secrets or sensitive exploit details in public issues. Email the maintainer privately or use GitHub Security Advisories when enabled.
 
