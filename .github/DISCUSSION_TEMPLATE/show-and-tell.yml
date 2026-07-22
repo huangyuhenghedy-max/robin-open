@@ -1,0 +1,47 @@
+name: Show and tell
+description: Share a reproducible Robin Open integration, workflow, trace, or learning.
+title: "Showcase: "
+labels:
+  - showcase
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Show the useful artifact, not just a claim. Remove secrets, private data, and internal material before posting.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and users
+      description: What did you build, and who does it help?
+    validations:
+      required: true
+  - type: textarea
+    id: approach
+    attributes:
+      label: Workflow design
+      description: Explain the workers, selection policy, and any tool or model adapters.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduce or inspect
+      description: Provide a repository, minimal command, trace excerpt, or other public artifact.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Results and tradeoffs
+      description: Include success criteria, failures, cost or latency observations, and limitations.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safeguards
+    attributes:
+      label: Sharing checks
+      options:
+        - label: This post contains no credentials, private data, or competition deliverables.
+          required: true
+        - label: The linked artifact explains its license and dependencies.
+          required: true
