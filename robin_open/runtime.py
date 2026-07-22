@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
@@ -73,18 +73,25 @@ class Workflow:
         candidates: list[Candidate] = []
         with concurrent.futures.ThreadPoolExecutor(max_workers=self._max_workers) as pool:
             futures = {pool.submit(worker, task): name for name, worker in self._workers}
-            for future in concurrent.futures.as_completed(futures, timeout=timeout):
-                worker_name = futures[future]
-                try:
-                    candidate = future.result()
-                    if candidate.worker != worker_name:
-                        candidate = Candidate(candidate.value, candidate.score, worker_name, candidate.rationale)
-                    candidates.append(candidate)
-                    emit("worker.completed", worker=worker_name, score=candidate.score)
-                except Exception as exc:
-                    message = f"{worker_name}: {type(exc).__name__}: {exc}"
-                    failures.append(message)
-                    emit("worker.failed", worker=worker_name, error=message)
+            try:
+                for future in concurrent.futures.as_completed(futures, timeout=timeout):
+                    worker_name = futures[future]
+                    try:
+                        candidate = future.result()
+                        if candidate.worker != worker_name:
+                            candidate = Candidate(candidate.value, candidate.score, worker_name, candidate.rationale)
+                        candidates.append(candidate)
+                        emit("worker.completed", worker=worker_name, score=candidate.score)
+                    except Exception as exc:
+                        message = f"{worker_name}: {type(exc).__name__}: {exc}"
+                        failures.append(message)
+                        emit("worker.failed", worker=worker_name, error=message)
+            except concurrent.futures.TimeoutError:
+                for future, worker_name in futures.items():
+                    if not future.done():
+                        message = f"{worker_name}: TimeoutError: exceeded {timeout:.1f}s workflow timeout"
+                        failures.append(message)
+                        emit("worker.failed", worker=worker_name, error=message)
 
         if not candidates:
             emit("workflow.failed", failures=len(failures))
@@ -105,3 +112,5 @@ def keyword_worker(name: str, *, keywords: Iterable[str], answer: str) -> tuple[
         return Candidate(value=answer, score=float(hits), worker=name, rationale=f"matched {hits} keywords")
 
     return name, worker
+
+
