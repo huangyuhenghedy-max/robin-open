@@ -1,4 +1,4 @@
-﻿from robin_open import Workflow
+from robin_open import Workflow
 from robin_open.runtime import keyword_worker
 
 workflow = Workflow([
