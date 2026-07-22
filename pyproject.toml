@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "robin-open"
-version = "0.1.0"
+version = "0.2.0"
 description = "A transparent, local-first multi-agent workflow runtime."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -15,6 +15,7 @@ classifiers = ["Development Status :: 3 - Alpha", "License :: OSI Approved :: MI
 
 [project.scripts]
 robin-open = "robin_open.cli:main"
+robin-open-demo = "robin_open.demo:main"
 
 [tool.setuptools.packages.find]
 include = ["robin_open*"]
@@ -22,3 +23,4 @@ include = ["robin_open*"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+
