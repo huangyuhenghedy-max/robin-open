@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Community showcase and questions
+    url: https://github.com/huangyuhenghedy-max/robin-open/discussions
+    about: Share a build, ask for direction, or compare integration approaches in Discussions.
+  - name: Security vulnerability
+    url: https://github.com/huangyuhenghedy-max/robin-open/security/advisories/new
+    about: Report a suspected vulnerability privately. Do not open a public issue for security reports.
