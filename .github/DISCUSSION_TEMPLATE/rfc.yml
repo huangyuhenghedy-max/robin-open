@@ -1,0 +1,52 @@
+name: Request for comments
+description: Propose an architectural or product direction before implementation.
+title: "RFC: "
+labels:
+  - rfc
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use an RFC for choices that affect public APIs, event semantics, adapters, storage, permissions, or roadmap priorities. Implementation work belongs in an issue after the decision.
+  - type: textarea
+    id: context
+    attributes:
+      label: Context and problem
+      description: Describe the current limitation using public, reproducible information.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Define the interfaces, lifecycle, data flow, and compatibility impact.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and tradeoffs
+      description: Compare plausible options, including the option of doing nothing.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation plan
+      description: State how users, maintainers, and CI can verify the result.
+    validations:
+      required: true
+  - type: textarea
+    id: rollout
+    attributes:
+      label: Rollout and migration
+      description: Describe versioning, migration, deprecation, or rollback where relevant.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safeguards
+    attributes:
+      label: Scope checks
+      options:
+        - label: This proposal excludes credentials, private data, and competition deliverables.
+          required: true
