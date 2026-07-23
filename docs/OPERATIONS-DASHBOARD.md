@@ -13,6 +13,7 @@
 | Release | v0.2.0 | 当前公开版本 |
 | CI | success | 主测试流程通过 |
 | Discussions | enabled | 已开启问答与 Showcase 入口 |
+| PyPI | pending publisher setup | 包已构建并通过 `twine check` |
 
 ## 增长漏斗
 
